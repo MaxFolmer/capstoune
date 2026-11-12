@@ -1,7 +1,13 @@
 # Guestbook · CI/CD Capstone
 
+[![CI](https://github.com/MaxFolmer/capstoune/actions/workflows/ci.yaml/badge.svg)](https://github.com/MaxFolmer/capstoune/actions/workflows/ci.yaml)
+
 Гостевая книга на FastAPI + PostgreSQL на основе моего проекта
 [guestbook-workshop](https://github.com/MaxFolmer/guestbook-workshop).
+Релизы **v1.0.0** и **v1.1.0** опубликованы. Обновление и откат между их
+образами с сохранением сообщения проверены в CI. Постоянного продового сервера
+пока нет. [Ссылки и результаты](docs/DEFENSE.md).
+
 Проект сохраняет исходные /messages и SQL-схему, добавляет проверку готовности,
 версию, тесты, выпуск контейнеров и процедуру отката.
 
@@ -31,7 +37,7 @@ DATABASE_URL=postgresql://test:test@localhost/test uv run pytest -q
 ```
 
 Интеграционный тест требует отдельную тестовую PostgreSQL и `INTEGRATION=1`.
-В Actions она создаётся автоматически. CI работает на push main, тегах и PR;
+В Actions она создаётся автоматически. CI работает на push во все ветки, тегах и PR;
 публикация имеет `needs: check`. Main публикует latest и sha-коммита; semver-тег
 публикует vX.Y.Z и sha. Тег обязан принадлежать main и совпадать с pyproject/CHANGELOG.
 Образы собираются для amd64 и arm64. Прод использует версии, не latest.
