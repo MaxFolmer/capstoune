@@ -44,6 +44,8 @@ DATABASE_URL=postgresql://test:test@localhost/test uv run pytest -q
 - [Образы GHCR](https://github.com/MaxFolmer/capstoune/pkgs/container/capstoune)
 - [Теги](https://github.com/MaxFolmer/capstoune/tags)
 
+GET /version возвращает имя сервиса и версию для диагностики выката.
+
 Main публикует `ghcr.io/maxfolmer/capstoune:latest`. Тег `vX.Y.Z`
 публикует образ с тем же тегом. Версия pyproject.toml должна совпадать с тегом;
 сначала обновить версию, config.py и значение ARG в Dockerfile, выполнить

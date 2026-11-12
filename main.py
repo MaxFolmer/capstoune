@@ -34,6 +34,11 @@ def index():
     return {"message": settings.greeting, "version": settings.app_version}
 
 
+@app.get("/version")
+def version():
+    return {"service": "guestbook", "version": settings.app_version}
+
+
 @app.get("/health")
 def health():
     return {"status": "ok"}

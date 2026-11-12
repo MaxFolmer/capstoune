@@ -4,7 +4,7 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 RUN uv sync --frozen --no-dev --no-install-project
 COPY main.py config.py ./
-ARG APP_VERSION=1.0.0
+ARG APP_VERSION=1.1.0
 ENV APP_VERSION=$APP_VERSION PATH="/app/.venv/bin:$PATH"
 RUN useradd --uid 10001 --create-home app
 USER app

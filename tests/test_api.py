@@ -13,6 +13,9 @@ def test_health_and_version():
     client = TestClient(main.app)
     assert client.get("/health").json() == {"status": "ok"}
     assert client.get("/").json()["version"] == main.settings.app_version
+    assert client.get("/version").json() == {
+        "service": "guestbook", "version": main.settings.app_version
+    }
 
 
 def test_validation():
